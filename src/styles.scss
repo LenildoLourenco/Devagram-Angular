@@ -18,3 +18,18 @@
 
     --branco: #FFF;
 };
+
+* {
+    font-family: var(--fontRegular);
+    font-size: 14px;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.oculto {
+    display: none !important;
+}
