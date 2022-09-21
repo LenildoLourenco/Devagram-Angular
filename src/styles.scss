@@ -17,6 +17,10 @@
     --cinza4: #333333;
 
     --branco: #FFF;
+
+    --vermelho: #FF0000;
+
+    --breakpointDesktop: 992px;
 };
 
 * {
@@ -32,4 +36,18 @@ body {
 
 .oculto {
     display: none !important;
+}
+
+input {
+    &::placeholder,
+    &:-ms-input-placeholder,
+    &::-ms-input-placeholder {
+        color: var(--cinza2);
+    }
+}
+
+.mensagemErro {
+    color: var(--vermelho);
+    margin: 5px 0 0;
+    font-size: 90%;
 }

@@ -21,7 +21,7 @@ export class UploadImagemComponent implements OnInit {
   }
 
   public trocarArquivo(event: any): void {
-     if (event.target.files && event.target.files.length) {
+    if (event.target.files && event.target.files.length) {
       const [arquivo] = event.target.files;
 
       const fileReader = new FileReader();
@@ -32,7 +32,7 @@ export class UploadImagemComponent implements OnInit {
         this.referenciaFormulario?.markAsDirty();
         this.aoAtualizarImagem.emit(this.imagemPrevisualizacao);
       }
-     }
+    }
   }
 
 }
