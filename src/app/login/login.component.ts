@@ -11,8 +11,8 @@ export class LoginComponent implements OnInit {
   public form: FormGroup;
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
-      login: ['', Validators.required],
-      senha: ['', Validators.required]
+      login: ['', [Validators.required, Validators.email]],
+      senha: ['', [Validators.required, Validators.minLength(4)]]
     })
   }
 

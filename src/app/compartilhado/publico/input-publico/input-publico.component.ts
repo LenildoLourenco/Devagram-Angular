@@ -29,10 +29,22 @@ export class InputPublicoComponent implements OnInit {
       return '';
     }
     if (this.referenciaFormulario?.errors['required']) {
-      return 'Campo obrigatório.';
+      return 'Campo obrigatório!';
     }
 
-    return 'Problema no preenchimento.';
+    if (this.referenciaFormulario?.errors['email']) {
+      return 'Insira um e-mail válido!';
+    }
+
+    if (this.referenciaFormulario?.errors['minlength']) {
+      return `Deve conter no mínimo ${this.referenciaFormulario.errors['minlength'].requiredLength} caracteres!`;
+    }
+
+    if (this.referenciaFormulario?.errors['confirmacaoSenha']) {
+      return 'As senhas não conferem!';
+    }
+
+    return '';
   }
 
 }

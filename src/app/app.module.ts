@@ -4,20 +4,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CadastroModule } from './cadastro/cadastro.module';
 import { CompartilhadoModule } from './compartilhado/compartilhado.module';
-import { LoginComponent } from './login/login.component';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CompartilhadoModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    LoginModule,
+    CadastroModule
   ],
   providers: [],
   bootstrap: [AppComponent]
