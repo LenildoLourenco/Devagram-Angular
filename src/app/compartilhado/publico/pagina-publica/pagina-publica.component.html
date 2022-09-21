@@ -4,10 +4,10 @@
     </div>
 
     <div class="containerConteudo">
-        <form (submit)="aoSubmeter()">
+        <form>
             <ng-content select="[conteudoFormulario]"></ng-content>
 
-            <app-botao [texto]="textoBotaoSubmit" typr="submit" classeCss="botaoPublico"></app-botao>
+            <app-botao [texto]="textoBotaoSubmit" typr="submit" classeCss="botaoPublico" (click)="aoSubmeter()"></app-botao>
         </form>
         <ng-content select="[rodape]"></ng-content>
     </div>
