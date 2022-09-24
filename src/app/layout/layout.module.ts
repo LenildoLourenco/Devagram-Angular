@@ -3,12 +3,16 @@ import { CommonModule } from '@angular/common';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 import { FormsModule } from '@angular/forms';
 import { CompartilhadoModule } from '../compartilhado/compartilhado.module';
+import { NavegacaoComponent } from './navegacao/navegacao.component';
+import { RodapeComponent } from './rodape/rodape.component';
 
 
 
 @NgModule({
   declarations: [
-    CabecalhoComponent
+    CabecalhoComponent,
+    NavegacaoComponent,
+    RodapeComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +20,8 @@ import { CompartilhadoModule } from '../compartilhado/compartilhado.module';
     CompartilhadoModule
   ],
   exports: [
-    CabecalhoComponent
+    CabecalhoComponent,
+    RodapeComponent
   ]
 })
 export class LayoutModule { }

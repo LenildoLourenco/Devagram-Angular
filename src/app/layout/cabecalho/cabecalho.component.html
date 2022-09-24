@@ -9,9 +9,11 @@
             </div>
             <input type="text" placeholder="Pesquisar" [(ngModel)]="termoPesquisado" (keyup)="pesquisarUsuarios()">
         </div>
+
+        <app-navegacao class="desktop"></app-navegacao>
     </div>
 
-    <!-- componente de pesquisa -->
+   
     <div class="containerResultadoPesquisa" *ngIf="resultadoDaPesquisa.length">
         <div *ngFor="let usuario of resultadoDaPesquisa" class="resultado"
             (click)="irParaOPerfilDoUsuario(usuario._id)">

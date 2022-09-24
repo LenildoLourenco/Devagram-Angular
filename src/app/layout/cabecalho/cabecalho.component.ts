@@ -24,6 +24,8 @@ export class CabecalhoComponent implements OnInit {
   }
 
   public async pesquisarUsuarios(): Promise<void> {
+    this.resultadoDaPesquisa = [];
+     
     if (this.termoPesquisado.length < 3) {
       return;
     }
@@ -35,7 +37,6 @@ export class CabecalhoComponent implements OnInit {
 
       this.resultadoDaPesquisa = usuariosRetornados.filter(ur => ur._id !== usuarioLogado?.id);
 
-      console.log(usuariosRetornados);
     } catch (e: any) {
       if (e?.status !== 400) {
         alert(e?.error.erro || 'Erro ao pesquisar usuários!');
