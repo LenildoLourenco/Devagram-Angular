@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { DevagramApiService } from '../compartilhado/servicos/devagram-api.service';
+import { DevagramUsuarioApiService } from '../compartilhado/servicos/devagram-usuario-api.service';
 import { CredenciaisDevagram } from './credenciais-devagram.type';
 import { RespostaLoginDevagram } from './resposta-login-devagram.type';
 
@@ -10,7 +11,8 @@ import { RespostaLoginDevagram } from './resposta-login-devagram.type';
 })
 export class AutenticacaoService extends DevagramApiService {
 
-  constructor(protected _http: HttpClient, @Inject('DEVAGRAM_URL_API') private _devagramUrlApi: string, private router: Router) {
+  constructor(protected _http: HttpClient, @Inject('DEVAGRAM_URL_API') private _devagramUrlApi: string, private router: Router, 
+    private usuarioApiService: DevagramUsuarioApiService) {
     super(_http, _devagramUrlApi);
   }
 
@@ -23,6 +25,13 @@ export class AutenticacaoService extends DevagramApiService {
     localStorage.setItem('token', respostaLogin.token);
     localStorage.setItem('nome', respostaLogin.nome);
     localStorage.setItem('email', respostaLogin.email);
+
+    const dadosUsuario = await this.usuarioApiService.buscarDadosUsuario();
+    localStorage.setItem("id", dadosUsuario._id);
+
+    if (dadosUsuario.avatar) {
+      localStorage.setItem("avatar", dadosUsuario.avatar);
+    }
 
     this.router.navigateByUrl('/');
   }
