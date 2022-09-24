@@ -7,8 +7,13 @@ import { DevagramApiService } from './devagram-api.service';
 })
 export class DevagramUsuarioApiService extends DevagramApiService {
 
-    buscarDadosUsuario(): Promise<UsuarioDevagram> {
+    public buscarDadosUsuario(): Promise<UsuarioDevagram> {
         return this.get('usuario');
     }
+
+    public pesquisarUsuarios(filtro: string): Promise<Array<UsuarioDevagram>> {
+      return this.get('pesquisa?filtro=' + filtro);
+  }
+
   
 }
